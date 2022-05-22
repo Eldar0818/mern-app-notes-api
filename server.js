@@ -48,7 +48,7 @@ app.delete('/api/:id', async (req, res)=> {
 })
 
 /* for deployment */
-app.use(express.static(path.join(__dirname, "/client")))
+app.use(express.static(path.join(__dirname, "/client/build")))
 
 app.get('*', (req, res)=> {
     res.sendFile(path.join(__dirname, "/client/build", "index.html"))

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Notes from './components/Notes'
 import Axios from 'axios'
 
-const baseUrl = 'https://edr-notes.herokuapp.com/api'
+const baseUrl = 'https://notes-edr.herokuapp.com/api'
 
 function App() {
 
