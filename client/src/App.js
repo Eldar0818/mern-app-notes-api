@@ -2,9 +2,7 @@ import './App.css'
 import Header from './components/Header'
 import { useState, useEffect } from 'react'
 import Notes from './components/Notes'
-import Axios from 'axios'
-
-const baseUrl = 'https://notes-edr.herokuapp.com/api'
+import { axiosInstance } from './configUrl'
 
 function App() {
 
@@ -15,7 +13,7 @@ function App() {
   useEffect(()=> {
     const fetchNotes = async ()=> {
       try {
-        const response = await Axios.get(baseUrl)
+        const response = await axiosInstance.get('/api')
         const data = await response.data
         setNotes(data)
       } catch (error) {

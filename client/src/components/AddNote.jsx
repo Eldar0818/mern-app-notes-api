@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Axios from 'axios'
+import { axiosInstance } from '../configUrl'
 
 const AddNote = ({ baseUrl }) => {
 
@@ -8,7 +8,7 @@ const AddNote = ({ baseUrl }) => {
   const handleSubmit = async (event)=> {
     event.preventDefault()
     try {
-      await Axios.post(baseUrl, { title })
+      await axiosInstance.post('/api', { title })
       window.location.reload()
     } catch (error) {
       console.log(error);

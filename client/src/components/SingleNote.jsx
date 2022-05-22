@@ -1,11 +1,11 @@
 import { BsFillTrashFill } from 'react-icons/bs'
-import Axios from 'axios'
+import { axiosInstance } from './configUrl'
 
-const SingleNote = ({ note, darkMode, baseUrl }) => {
+const SingleNote = ({ note, darkMode }) => {
 
   const handleDelete = (id)=> {
     try {
-      Axios.delete(`${baseUrl}/${id}`)
+      axiosInstance.delete(`/api/${id}`)
       alert('Note deleted!')
       window.location.reload()
     } catch (error) {
