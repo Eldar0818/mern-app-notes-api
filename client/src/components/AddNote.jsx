@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import { axiosInstance } from '../configUrl'
+import Axios from 'axios'
 
-const AddNote = () => {
+const AddNote = ({ baseUrl }) => {
 
   const [title, setTitle] = useState("")
 
   const handleSubmit = async (event)=> {
     event.preventDefault()
     try {
-      await axiosInstance.post('/', { title })
+      await Axios.post(baseUrl, { title })
       window.location.reload()
     } catch (error) {
       console.log(error);

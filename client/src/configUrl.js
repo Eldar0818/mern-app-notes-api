@@ -1,5 +1,5 @@
 import Axios from 'axios'
 
 export const axiosInstance = Axios.create({ 
-    baseUrl: "https://edr-notes-app.herokuapp.com"
+    baseUrl: "http://localhost:5000/api/"
  })

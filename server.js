@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
-app.post('/', async (req, res)=> {
+app.post('/api', async (req, res)=> {
     const newNote = new Note({
         title: req.body.title
     })
@@ -34,11 +34,11 @@ app.get('/api', async (req, res)=> {
         const allNotes = await Note.find()
         res.status(200).json(allNotes)
     } catch (error) {
-        res.status(500).json(error)
+        res.status(500).json(error) 
     }
 })
 
-app.delete('/:id', async (req, res)=> {
+app.delete('/api/:id', async (req, res)=> {
     try {
          await Note.findByIdAndDelete(req.params.id)
         res.status(200).json('Note deleted...')

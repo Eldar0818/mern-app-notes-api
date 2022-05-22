@@ -1,13 +1,18 @@
 import SingleNote from "./SingleNote"
 import AddNote from "./AddNote"
 
-const Notes = ({ notes, darkMode }) => {
+const Notes = ({ notes, darkMode, baseUrl }) => {
   return (
     <section className="notes">
-      <AddNote/>
+      <AddNote baseUrl={baseUrl}/>
        {
          notes.map(note=> (
-            <SingleNote note={note} key={note._id} darkMode={darkMode} />
+            <SingleNote 
+              note={note} 
+              baseUrl={baseUrl} 
+              key={note._id} 
+              darkMode={darkMode} 
+            />
          ))
        }
     </section>

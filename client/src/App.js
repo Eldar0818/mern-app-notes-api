@@ -2,7 +2,9 @@ import './App.css'
 import Header from './components/Header'
 import { useState, useEffect } from 'react'
 import Notes from './components/Notes'
-import { axiosInstance } from './configUrl'
+import Axios from 'axios'
+
+const baseUrl = 'https://edr-notes.herokuapp.com/api'
 
 function App() {
 
@@ -13,7 +15,7 @@ function App() {
   useEffect(()=> {
     const fetchNotes = async ()=> {
       try {
-        const response = await axiosInstance.get('/api')
+        const response = await Axios.get(baseUrl)
         const data = await response.data
         setNotes(data)
       } catch (error) {
@@ -39,6 +41,7 @@ function App() {
             <Notes 
               notes={notes.filter(note=> note.title.toLowerCase().includes(searchValue))}
               darkMode={darkMode}
+              baseUrl={baseUrl}
             />
           </div>
       </section>
