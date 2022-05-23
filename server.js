@@ -32,7 +32,7 @@ app.post('/api', async (req, res)=> {
 app.get('/api', async (req, res)=> {
     try {
         const allNotes = await Note.find()
-        res.status(200).json(allNotes)
+        res.status(200).send(allNotes)
     } catch (error) {
         res.status(500).json(error) 
     }
